@@ -1,0 +1,8 @@
+[
+  {
+    "type": "string",
+    "question": "Can you answer this question?",
+    "answers": ["First answer", "Second answer", "Third answer", "Fourth answer"],
+    "answer": 0
+  }
+]
