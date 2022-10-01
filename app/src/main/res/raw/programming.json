@@ -25,7 +25,7 @@
   {
     "type": "openresponse",
     "question": "What was the first major object oriented programming language?",
-    "answer": "c++"
+    "answer": "c//+//+"
   },
   {
     "type": "openresponse",
