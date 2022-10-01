@@ -22,9 +22,9 @@ object QuestionParser {
             val type = entry["type"] as String
             val question = entry["question"] as String
             out.add(when (type) {
-                "string" -> MultipleChoiceQuestion(question, toList<String>(entry.getJSONArray("answers")), entry["answer"] as Int)
+                "string" -> MultipleChoiceQuestion(question, toList<String>(entry.getJSONArray("answers")), entry["answer"] as Int, type)
                 "openresponse" -> OpenResponseQuestion(question, entry["answer"] as String)
-                "image" -> MultipleChoiceQuestion(question, toList<Int>(entry.getJSONArray("answers")), entry["answer"] as Int)
+                "image" -> MultipleChoiceQuestion(question, toList<Int>(entry.getJSONArray("answers")), entry["answer"] as Int, type)
                 else -> throw IllegalArgumentException("Invalid question type")
             })
         }

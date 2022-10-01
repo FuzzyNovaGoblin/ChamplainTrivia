@@ -1,9 +1,11 @@
 package com.fuzytech.champlaintrivia.question
 
-interface Question<A> {
 
-    public val question: String
+interface Question<A>  {
 
-    public fun validate(answer: A): Boolean
+     public val question: String
 
+     public fun validate(answer: A): Boolean
+
+     fun jsontype(): String
 }

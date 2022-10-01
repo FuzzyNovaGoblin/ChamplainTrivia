@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentStringQuestionBinding
+import com.fuzytech.champlaintrivia.question.MultipleChoiceQuestion
 
 class StringQuestionFragment : Fragment() {
-    private lateinit var question: String
-    private lateinit var answers: List<String>
-    private var answer: Int? = null
+    private lateinit var question: MultipleChoiceQuestion<String>
+    private lateinit var nextQuestion: () -> Unit
+
 
     private lateinit var buttons: List<Button>
 
@@ -20,11 +21,6 @@ class StringQuestionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            question = it.getString("question")!!
-            answers = it.getStringArrayList("answers")!!
-            answer = it.getInt("answer")!!
-        }
     }
 
     override fun onCreateView(
@@ -34,20 +30,20 @@ class StringQuestionFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentStringQuestionBinding.inflate(inflater, container, false)
         binding.apply { buttons = listOf(answer1, answer2, answer3, answer4) }
-        (0..4).forEach { buttons[it].setText(answers[it]) }
-        binding.question.setText(question)
+        (0 until 4).forEach {
+            buttons[it].text = question.answers[it]
+            buttons[it].setOnClickListener { nextQuestion() }
+        }
+        binding.question.text = question.question
         return binding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(question: String, answers: ArrayList<String>, answer: Int) =
+        fun newInstance(nextQ: () -> Unit, question: MultipleChoiceQuestion<String>) =
             StringQuestionFragment().apply {
-                arguments = Bundle().apply {
-                    putString("question", question)
-                    putStringArrayList("answers", answers)
-                    putInt("answer", answer)
-                }
+                nextQuestion = nextQ
+                this.question = question
             }
     }
 }

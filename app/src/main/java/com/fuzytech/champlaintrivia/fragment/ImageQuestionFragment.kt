@@ -10,11 +10,12 @@ import android.widget.ImageView
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentImageQuestionBinding
 import com.fuzytech.champlaintrivia.databinding.FragmentStringQuestionBinding
+import com.fuzytech.champlaintrivia.question.MultipleChoiceQuestion
 
 class ImageQuestionFragment : Fragment() {
-    private lateinit var question: String
-    private lateinit var answers: List<Int>
-    private var answer: Int? = null
+    private lateinit var question: MultipleChoiceQuestion<Int>
+    private lateinit var nextQuestion: () -> Unit
+
 
     private lateinit var buttons: List<ImageView>
 
@@ -22,12 +23,6 @@ class ImageQuestionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            question = it.getString("question")!!
-            answers = it.getIntegerArrayList("answers")!!
-            answer = it.getInt("answer")!!
-        }
     }
 
     override fun onCreateView(
@@ -37,20 +32,22 @@ class ImageQuestionFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentImageQuestionBinding.inflate(inflater, container, false)
         binding.apply { buttons = listOf(answer1, answer2, answer3, answer4) }
-        (0..4).forEach { buttons[it].setImageResource(answers[it]) }
-        binding.question.setText(question)
+        (0..4).forEach {
+            buttons[it].setOnClickListener { nextQuestion() }
+            buttons[it].setImageResource(question.answers[it])
+        }
+        binding.question.text = question.question
         return binding.root
     }
 
+
     companion object {
         @JvmStatic
-        fun newInstance(question: String, answers: ArrayList<Int>, answer: Int) =
-            StringQuestionFragment().apply {
-                arguments = Bundle().apply {
-                    putString("question", question)
-                    putIntegerArrayList("answers", answers)
-                    putInt("answer", answer)
-                }
+        fun newInstance(nextQ: () -> Unit, question: MultipleChoiceQuestion<Int>) =
+            ImageQuestionFragment().apply {
+                nextQuestion = nextQ
+                this.question = question
             }
+
     }
 }

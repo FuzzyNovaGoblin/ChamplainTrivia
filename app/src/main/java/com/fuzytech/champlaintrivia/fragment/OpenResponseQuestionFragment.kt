@@ -9,19 +9,22 @@ import android.widget.Button
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentOpenResponseQuestionBinding
 import com.fuzytech.champlaintrivia.databinding.FragmentStringQuestionBinding
+import com.fuzytech.champlaintrivia.question.OpenResponseQuestion
+import com.fuzytech.champlaintrivia.question.Question
 
 class OpenResponseQuestionFragment : Fragment() {
-    private lateinit var question: String
-    private lateinit var answer: String
+    private lateinit var question: OpenResponseQuestion
+    private lateinit var nextQuestion: () -> Unit
 
     private lateinit var binding: FragmentOpenResponseQuestionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            question = it.getString("question")!!
-            answer = it.getString("answer")!!
-        }
+
+//        arguments?.let {
+//            question = it.getString("question")!!
+//            answer = it.getString("answer")!!
+//        }
     }
 
     override fun onCreateView(
@@ -30,18 +33,17 @@ class OpenResponseQuestionFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentOpenResponseQuestionBinding.inflate(inflater, container, false)
-        binding.question.setText(question)
+        binding.question.text = question.question
+        binding.submit.setOnClickListener { nextQuestion() }
         return binding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(question: String, answer: String) =
-            StringQuestionFragment().apply {
-                arguments = Bundle().apply {
-                    putString("question", question)
-                    putString("answer", answer)
-                }
+        fun newInstance(nextQ: () -> Unit, question: OpenResponseQuestion) =
+            OpenResponseQuestionFragment().apply {
+                nextQuestion = nextQ
+                this.question = question
             }
     }
 }
