@@ -47,8 +47,7 @@ class ImageQuestionFragment : Fragment() {
         binding.question.text = question.question
         return binding.root
     }
-
-
+    
     companion object {
         @JvmStatic
         fun newInstance(nextQ: QuestionCallback, question: MultipleChoiceQuestion<Int>) =
