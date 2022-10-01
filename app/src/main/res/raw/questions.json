@@ -1,8 +1,52 @@
 [
   {
     "type": "string",
-    "question": "Can you answer this question?",
-    "answers": ["First answer", "Second answer", "Third answer", "Fourth answer"],
+    "question": "What street is IDX on?",
+    "answers": ["Maple", "S Willard", "N Willard", "Cliff"],
+    "answer": 1
+  },
+  {
+    "type": "string",
+    "question": "What year was Champlain founded?",
+    "answers": ["1878", "1876", "1934", "1977"],
     "answer": 0
+  },
+  {
+    "type": "openresponse",
+    "question": "Who is depicted by the statue next to CCM?",
+    "answer": "samuel de champlain"
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the full name of the library?",
+    "answer": "miller information commons?"
+  },
+  {
+    "type": "string",
+    "question": "How many dorm buildings does Champlain operate?",
+    "answers": ["11", "17", "30", "25"],
+    "answer": 3
+  },
+  {
+    "type": "string",
+    "question": "Who was Champlain's first president?",
+    "answers": ["A. Gordon Tittemore", "G. W. Thompson", "David P. Finney", "Roger H. Perry"],
+    "answer": 1
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the first major offered by Champlain alphabetically?",
+    "answer": "accounting"
+  },
+  {
+    "type": "string",
+    "question": "Who is the dean of Champlain's ITS division?",
+    "answers": ["Brian Hall", "David Kopec", "Scott Stevens", "George Clooney"],
+    "answer": 2
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the name of Champlain's mascot?",
+    "answer": "chaunce?y"
   }
 ]
