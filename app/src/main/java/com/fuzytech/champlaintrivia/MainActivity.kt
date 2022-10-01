@@ -2,6 +2,7 @@ package com.fuzytech.champlaintrivia
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fuzytech.champlaintrivia.databinding.ActivityMainBinding
 import com.fuzytech.champlaintrivia.fragment.HomPageFragment
@@ -39,16 +40,19 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("here", "before")
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentLayout, HomPageFragment.newInstance {
-                Log.i("here", "im here")
-                nextQuestion()
-            }).addToBackStack("home page").commit()
+            .replace(R.id.fragmentLayout, HomPageFragment.newInstance { nextQuestion(it) }).addToBackStack("home page").commit()
         Log.i("here", "after")
     }
 
 
-    fun nextQuestion() {
+    fun nextQuestion(isCorrect: Boolean) {
         onHome = false
+
+        if (isCorrect){
+            Toast.makeText(applicationContext, "is correct", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(applicationContext, "you stupid idiotz", Toast.LENGTH_SHORT).show()
+        }
 
         if (questionIndex > questions.size) {
             TODO()
@@ -58,19 +62,19 @@ class MainActivity : AppCompatActivity() {
             // rust types are great java types suck if you care enough you can fix this, or even just half fix it with an enum
             "string" -> supportFragmentManager.beginTransaction().replace(
                 R.id.fragmentLayout, StringQuestionFragment.newInstance(
-                    { nextQuestion() },
+                    { nextQuestion(it) },
                     questions[questionIndex] as MultipleChoiceQuestion<String>
                 )
             ).commit()
             "openresponse" -> supportFragmentManager.beginTransaction().replace(
                 R.id.fragmentLayout, OpenResponseQuestionFragment.newInstance(
-                    { nextQuestion() },
+                    { nextQuestion(it) },
                     questions[questionIndex] as OpenResponseQuestion
                 )
             ).commit()
             "image" -> supportFragmentManager.beginTransaction().replace(
                 R.id.fragmentLayout, ImageQuestionFragment.newInstance(
-                    { nextQuestion() },
+                    { nextQuestion(it) },
                     questions[questionIndex] as MultipleChoiceQuestion<Int>
                 )
             ).commit()
@@ -84,8 +88,7 @@ class MainActivity : AppCompatActivity() {
         if (onHome) super.onBackPressed() else {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentLayout, HomPageFragment.newInstance {
-                    Log.i("here", "im here")
-                    nextQuestion()
+                    nextQuestion(it)
                 }).commit()
         }
     }

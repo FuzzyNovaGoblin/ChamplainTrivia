@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.fuzytech.champlaintrivia.QuestionCallback
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentHomPageBinding
 import com.fuzytech.champlaintrivia.databinding.FragmentImageQuestionBinding
@@ -15,10 +16,10 @@ import com.fuzytech.champlaintrivia.databinding.FragmentImageQuestionBinding
 class HomPageFragment : Fragment() {
 
     private lateinit var binding: FragmentHomPageBinding
-    private lateinit var nextQuestion: () -> Unit
+    private lateinit var nextQuestion: QuestionCallback
 
     companion object {
-        fun newInstance(nextQ: () -> Unit) = HomPageFragment().apply {
+        fun newInstance(nextQ: QuestionCallback) = HomPageFragment().apply {
             nextQuestion = nextQ
         }
     }
@@ -32,7 +33,7 @@ class HomPageFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             Log.i("here", "in click listener")
-            nextQuestion()
+            nextQuestion(false)
         }
 
         return binding.root

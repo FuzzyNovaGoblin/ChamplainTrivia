@@ -1,7 +1,7 @@
 package com.fuzytech.champlaintrivia.question
 
 
-interface Question<A>: java.io.Serializable {
+interface Question<A> : java.io.Serializable {
 
      public val question: String
 

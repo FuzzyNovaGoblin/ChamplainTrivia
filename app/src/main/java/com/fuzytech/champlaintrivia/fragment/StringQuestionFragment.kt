@@ -6,13 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.fuzytech.champlaintrivia.QuestionCallback
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentStringQuestionBinding
 import com.fuzytech.champlaintrivia.question.MultipleChoiceQuestion
+import com.fuzytech.champlaintrivia.question.OpenResponseQuestion
 
 class StringQuestionFragment : Fragment() {
     private lateinit var question: MultipleChoiceQuestion<String>
-    private lateinit var nextQuestion: () -> Unit
+    private lateinit var nextQuestion: QuestionCallback
 
 
     private lateinit var buttons: List<Button>
@@ -21,6 +23,12 @@ class StringQuestionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            question = it.getSerializable("question")!! as MultipleChoiceQuestion<String>
+            nextQuestion = it.getSerializable("nextQuestion")!! as QuestionCallback
+
+        }
     }
 
     override fun onCreateView(
@@ -30,9 +38,10 @@ class StringQuestionFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentStringQuestionBinding.inflate(inflater, container, false)
         binding.apply { buttons = listOf(answer1, answer2, answer3, answer4) }
-        (0 until 4).forEach {
-            buttons[it].text = question.answers[it]
-            buttons[it].setOnClickListener { nextQuestion() }
+        for (i in 0 until 4) {
+            buttons[i].text = question.answers[i]
+            buttons[i].setOnClickListener { nextQuestion(question.validate(i)) }
+
         }
         binding.question.text = question.question
         return binding.root
@@ -40,10 +49,12 @@ class StringQuestionFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(nextQ: () -> Unit, question: MultipleChoiceQuestion<String>) =
+        fun newInstance(nextQ: QuestionCallback, question: MultipleChoiceQuestion<String>) =
             StringQuestionFragment().apply {
-                nextQuestion = nextQ
-                this.question = question
+                arguments = Bundle().apply {
+                    putSerializable("question", question)
+                    putSerializable("nextQuestion", nextQ)
+                }
             }
     }
 }
