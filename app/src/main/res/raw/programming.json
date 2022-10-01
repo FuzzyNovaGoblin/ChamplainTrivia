@@ -39,6 +39,9 @@
     "answer": 2
   },
   {
-    "type": "image"
+    "type": "image",
+    "question": "Where's Ferris?",
+    "answers": ["go", "scratch", "java", "rust"],
+    "answer": 3
   }
 ]
