@@ -2,6 +2,8 @@ package com.fuzytech.champlaintrivia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.fuzytech.champlaintrivia.question.Question
+import com.fuzytech.champlaintrivia.question.QuestionParser
 
 private lateinit var questions: List<Question<*>>
 
