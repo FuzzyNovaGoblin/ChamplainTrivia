@@ -28,7 +28,7 @@ class QuizActivity : AppCompatActivity() {
 
         val fileId = intent.extras!!.getInt("file_id");
 
-        val inerthing = resources.openRawResource(fileId)0
+        val inerthing = resources.openRawResource(fileId)
         questions = QuestionParser.parse(inerthing.bufferedReader().use { it.readText() })
         inerthing.close()
 
