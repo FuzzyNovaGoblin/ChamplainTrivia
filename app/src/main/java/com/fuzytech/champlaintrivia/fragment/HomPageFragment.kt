@@ -31,11 +31,6 @@ class HomPageFragment : Fragment() {
 
         binding = FragmentHomPageBinding.inflate(inflater, container, false)
 
-        binding.startButton.setOnClickListener {
-            Log.i("here", "in click listener")
-            nextQuestion(false)
-        }
-
         return binding.root
     }
 

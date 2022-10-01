@@ -7,8 +7,13 @@
   {
     "type": "string",
     "question": "What year was Vermont founded?",
-    "answers": ["1741", "1791", "1804", "1832"],
-    "answer":  1
+    "answers": [
+      "1741",
+      "1791",
+      "1804",
+      "1832"
+    ],
+    "answer": 1
   },
   {
     "type": "openresponse",
@@ -23,18 +28,30 @@
       "Phil Scott",
       "Bernie Sanders",
       "Tom Cruise"
-    ]
+    ],
+    "answer": 1
   },
   {
     "type": "string",
     "question": "What business on Church Street is known for their bagels?",
-    "answers": ["Willow's Bagels", "Pennycluse Cafe", "Burlington Bagel Bakery", "Starbucks"],
+    "answers": [
+      "Willow's Bagels",
+      "Pennycluse Cafe",
+      "Burlington Bagel Bakery",
+      "Starbucks"
+    ],
     "answer": 2
   },
   {
     "type": "string",
     "question": "What famous maker youtuber operates out of Burlington?",
-    "answers": ["Useless Inventions", "Michael Reeves", "Unamerican Inventions", "Stuff Made Here"]
+    "answers": [
+      "Useless Inventions",
+      "Michael Reeves",
+      "Unamerican Inventions",
+      "Stuff Made Here"
+    ],
+    "answer": 0
   },
   {
     "type": "openresponse",
@@ -44,17 +61,23 @@
   {
     "type": "string",
     "question": "What is the name of the annual street performer event in Burlington?",
-    "answers": ["Festival of Fools", "Performer Takeover", "Party of Performers", "Performers Parade"],
+    "answers": [
+      "Festival of Fools",
+      "Performer Takeover",
+      "Party of Performers",
+      "Performers Parade"
+    ],
     "answer": 0
   },
   {
     "type": "string",
     "question": "What is the name of the deli at the South end of Church Street?",
-    "answers": ["Jim's Deli", "Subway", "Kountry Kart Deli", "Top of the Block Sandwich Shoppe"],
+    "answers": [
+      "Jim's Deli",
+      "Subway",
+      "Kountry Kart Deli",
+      "Top of the Block Sandwich Shoppe"
+    ],
     "answer": 2
-  },
-  {
-    "type": "openresponse",
-    "question": ""
   }
 ]
