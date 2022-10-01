@@ -46,5 +46,15 @@
     "question": "What is the name of the annual street performer event in Burlington?",
     "answers": ["Festival of Fools", "Performer Takeover", "Party of Performers", "Performers Parade"],
     "answer": 0
+  },
+  {
+    "type": "string",
+    "question": "What is the name of the deli at the South end of Church Street?",
+    "answers": ["Jim's Deli", "Subway", "Kountry Kart Deli", "Top of the Block Sandwich Shoppe"],
+    "answer": 2
+  },
+  {
+    "type": "openresponse",
+    "question": ""
   }
 ]
