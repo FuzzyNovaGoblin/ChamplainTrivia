@@ -1,10 +1,8 @@
 package com.fuzytech.champlaintrivia.question
 
-import android.R
-import com.fuzytech.champlaintrivia.question.Question
 import org.json.JSONArray
 import org.json.JSONObject
-
+import java.lang.IllegalArgumentException
 
 object QuestionParser {
 
@@ -26,8 +24,8 @@ object QuestionParser {
             out.add(when (type) {
                 "string" -> MultipleChoiceQuestion(question, toList<String>(entry.getJSONArray("answers")), entry["answer"] as Int)
                 "openresponse" -> OpenResponseQuestion(question, entry["answer"] as String)
-
-                else -> throw IllegalArgumentException("Invalid question type $type")
+                "image" -> MultipleChoiceQuestion(question, toList<Int>(entry.getJSONArray("answers")), entry["answer"] as Int)
+                else -> throw IllegalArgumentException("Invalid question type")
             })
         }
         return out
