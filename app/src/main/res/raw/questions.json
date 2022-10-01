@@ -48,5 +48,10 @@
     "type": "openresponse",
     "question": "What is the name of Champlain's mascot?",
     "answer": "chaunce?y"
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the school motto?",
+    "answer": "let us dare"
   }
 ]

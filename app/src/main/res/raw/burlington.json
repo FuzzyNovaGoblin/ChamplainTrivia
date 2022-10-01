@@ -1,0 +1,40 @@
+[
+  {
+    "type": "openresponse",
+    "question": "What is the capital of Vermont?",
+    "answer": "montpelier"
+  },
+  {
+    "type": "string",
+    "question": "What year was Vermont founded?",
+    "answers": ["1741", "1791", "1804", "1832"],
+    "answer":  1
+  },
+  {
+    "type": "string",
+    "question": "What year was Linux released into version 1.0?",
+    "answers": ["1995", "1991", "1994", "1999"],
+    "answer": 2
+  },
+  {
+    "type": "openresponse",
+    "question": "What famous US Senator was originally a mayor of Burlington?",
+    "answer": "bernie sanders"
+  },
+  {
+    "type": "string",
+    "question": "Who is the current governor of Vermont?",
+    "answers": [
+      "Patrick Leahy",
+      "Phil Scott",
+      "Bernie Sanders",
+      "Tom Cruise"
+    ]
+  },
+  {
+    "type": "string",
+    "question": "What business on Church Street is known for their bagels?",
+    "answers": ["Willow's Bagels", "Pennycluse Cafe", "Burlington Bagel Bakery", "Starbucks"],
+    "answer": 2
+  }
+]
