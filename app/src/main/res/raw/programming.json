@@ -4,5 +4,41 @@
     "question": "What year was Linux released into version 1.0?",
     "answers": ["1995", "1991", "1994", "1999"],
     "answer": 2
+  },
+  {
+    "type": "string",
+    "question": "Which of the following is NOT taught in Emerging Languages?",
+    "answers": ["Go", "Clojure", "Swift", "Lua"],
+    "answer": 3
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the name for a data structure that lets you associate keys with values?",
+    "answer": "map|dict|dictionary|hash ?map"
+  },
+  {
+    "type": "string",
+    "question": "Which paradigm usually includes data immutability by default?",
+    "answers": ["Object oriented", "Functional", "Imperative", "Procedural"],
+    "answer": 1
+  },
+  {
+    "type": "openresponse",
+    "question": "What was the first major object oriented programming language?",
+    "answer": "c++"
+  },
+  {
+    "type": "openresponse",
+    "question": "What is a monad?",
+    "answer": "(a )?monoid over the category of endofunctors"
+  },
+  {
+    "type": "string",
+    "question": "What is the optimal runtime complexity of most sorting algorithms?",
+    "answers": ["O(logn)", "O(n)", "O(nlogn)", "O(n^2)"],
+    "answer": 2
+  },
+  {
+    "type": "image"
   }
 ]
