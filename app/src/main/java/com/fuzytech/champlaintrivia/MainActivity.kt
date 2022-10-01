@@ -19,6 +19,7 @@ private lateinit var questions: List<Question<*>>
 private var questionIndex: Int = 0
 private var onHome = true
 private lateinit var binding: ActivityMainBinding
+private var score = 0
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +50,10 @@ class MainActivity : AppCompatActivity() {
         onHome = false
 
         if (isCorrect){
-            Toast.makeText(applicationContext, "is correct", Toast.LENGTH_SHORT).show()
+            score += 1
+            Toast.makeText(applicationContext, "is correct, score: "+ score, Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(applicationContext, "you stupid idiotz", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "you stupid idiot", Toast.LENGTH_SHORT).show()
         }
 
         if (questionIndex > questions.size) {
