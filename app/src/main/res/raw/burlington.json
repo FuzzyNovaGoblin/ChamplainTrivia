@@ -11,12 +11,6 @@
     "answer":  1
   },
   {
-    "type": "string",
-    "question": "What year was Linux released into version 1.0?",
-    "answers": ["1995", "1991", "1994", "1999"],
-    "answer": 2
-  },
-  {
     "type": "openresponse",
     "question": "What famous US Senator was originally a mayor of Burlington?",
     "answer": "bernie sanders"
@@ -36,5 +30,21 @@
     "question": "What business on Church Street is known for their bagels?",
     "answers": ["Willow's Bagels", "Pennycluse Cafe", "Burlington Bagel Bakery", "Starbucks"],
     "answer": 2
+  },
+  {
+    "type": "string",
+    "question": "What famous maker youtuber operates out of Burlington?",
+    "answers": ["Useless Inventions", "Michael Reeves", "Unamerican Inventions", "Stuff Made Here"]
+  },
+  {
+    "type": "openresponse",
+    "question": "What is the name of the library located near Church Street?",
+    "answer": "fletcher free library|fletcher"
+  },
+  {
+    "type": "string",
+    "question": "What is the name of the annual street performer event in Burlington?",
+    "answers": ["Festival of Fools", "Performer Takeover", "Party of Performers", "Performers Parade"],
+    "answer": 0
   }
 ]

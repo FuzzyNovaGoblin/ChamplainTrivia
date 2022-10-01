@@ -1,0 +1,8 @@
+[
+  {
+    "type": "string",
+    "question": "What year was Linux released into version 1.0?",
+    "answers": ["1995", "1991", "1994", "1999"],
+    "answer": 2
+  }
+]
