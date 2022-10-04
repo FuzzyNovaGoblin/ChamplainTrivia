@@ -26,7 +26,7 @@ object Scoreboard {
         val players = ArrayList<String>()
         players.addAll(scores.keys)
         players.sortByDescending { scores[it] }
-        return players.map { "$it ${scores[it]}" }.take(limit)
+        return players.map { "$it - ${scores[it]}" }.take(limit)
     }
 
     fun addScore(quiz: String, player: String, score: Int) {
