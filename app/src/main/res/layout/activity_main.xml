@@ -4,10 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_centerHorizontal="true"
-
+    android:gravity="center"
+    android:orientation="vertical"
+    app:flow_horizontalAlign="center"
     tools:context=".MainActivity">
+
+
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"></Space>
 
     <Button
         android:id="@+id/burlington_button"
@@ -17,6 +25,11 @@
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="282dp" />
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"></Space>
+
     <Button
         android:id="@+id/champlain_button"
         android:layout_width="wrap_content"
@@ -25,6 +38,11 @@
         tools:layout_editor_absoluteX="146dp"
         tools:layout_editor_absoluteY="377dp" />
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"></Space>
+
     <Button
         android:id="@+id/programming_button"
         android:layout_width="wrap_content"
@@ -32,4 +50,10 @@
         android:text="@string/programming_button_name"
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="502dp" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"></Space>
+
 </androidx.appcompat.widget.LinearLayoutCompat>
