@@ -45,10 +45,6 @@ class QuizActivity : AppCompatActivity() {
 
         if (isCorrect) {
             score += 1
-            Toast.makeText(applicationContext, "is correct, score: $score", Toast.LENGTH_SHORT)
-                .show()
-        } else {
-            Toast.makeText(applicationContext, "you stupid idiot", Toast.LENGTH_SHORT).show()
         }
 
         if (questionIndex >= questions.size) {
