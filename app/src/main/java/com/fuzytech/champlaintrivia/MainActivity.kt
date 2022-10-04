@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.fuzytech.champlaintrivia.databinding.ActivityMainBinding
+import com.fuzytech.champlaintrivia.highscore.Scoreboard
 import com.fuzytech.champlaintrivia.question.Question
 
 
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 //        Log.i("here", "after")
 
 
+        Scoreboard.init(dataDir)
     }
 
     fun startQuiz(file_id: Int) {

@@ -14,6 +14,9 @@ object Scoreboard {
 
     fun scores(quiz: String): MutableMap<String, Int> {
         val map = HashMap<String, Int>()
+        if(!file(quiz).exists()){
+            file(quiz).createNewFile()
+        }
         file(quiz).readLines().forEach {it.split(" ").also {map[it[0]] = it[1].toInt()}}
         return map
     }
