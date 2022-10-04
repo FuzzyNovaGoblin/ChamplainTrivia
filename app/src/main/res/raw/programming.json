@@ -1,5 +1,11 @@
 [
   {
+    "type": "image",
+    "question": "Where's Ferris?",
+    "answers": ["go", "scratch", "java", "rust"],
+    "answer": 3
+  },
+  {
     "type": "string",
     "question": "What year was Linux released into version 1.0?",
     "answers": ["1995", "1991", "1994", "1999"],
@@ -37,11 +43,5 @@
     "question": "What is the optimal runtime complexity of most sorting algorithms?",
     "answers": ["O(logn)", "O(n)", "O(nlogn)", "O(n^2)"],
     "answer": 2
-  },
-  {
-    "type": "image",
-    "question": "Where's Ferris?",
-    "answers": ["go", "scratch", "java", "rust"],
-    "answer": 3
   }
 ]

@@ -1,6 +1,7 @@
 package com.fuzytech.champlaintrivia.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.fuzytech.champlaintrivia.QuestionCallback
 import com.fuzytech.champlaintrivia.R
 import com.fuzytech.champlaintrivia.databinding.FragmentImageQuestionBinding
 import com.fuzytech.champlaintrivia.databinding.FragmentStringQuestionBinding
+import com.fuzytech.champlaintrivia.question.ImageMapping
 import com.fuzytech.champlaintrivia.question.MultipleChoiceQuestion
 
 class ImageQuestionFragment : Fragment() {
@@ -28,7 +30,6 @@ class ImageQuestionFragment : Fragment() {
         arguments?.let {
             question = it.getSerializable("question")!! as MultipleChoiceQuestion<Int>
             nextQuestion = it.getSerializable("nextQuestion")!! as QuestionCallback
-
         }
     }
 
@@ -52,6 +53,8 @@ class ImageQuestionFragment : Fragment() {
         @JvmStatic
         fun newInstance(nextQ: QuestionCallback, question: MultipleChoiceQuestion<Int>) =
             ImageQuestionFragment().apply {
+                this.question = question
+                this.nextQuestion = nextQ
                 StringQuestionFragment().apply {
                     arguments = Bundle().apply {
                         putSerializable("question", question)

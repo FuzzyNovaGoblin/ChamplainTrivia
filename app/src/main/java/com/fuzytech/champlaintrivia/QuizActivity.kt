@@ -49,7 +49,7 @@ class QuizActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "you stupid idiot", Toast.LENGTH_SHORT).show()
         }
 
-        if (questionIndex > questions.size) {
+        if (questionIndex >= questions.size) {
             Log.i("here", "in question index too big")
             return
         }
