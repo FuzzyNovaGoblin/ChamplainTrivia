@@ -1,5 +1,6 @@
 package com.fuzytech.champlaintrivia
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -26,6 +27,13 @@ class HighScoreActivity : AppCompatActivity() {
         binding.highscores.setText(Scoreboard.highScores(quiz, 10).joinToString("\n"))
         setContentView(binding.root)
 
+        binding.share.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Quiz score")
+            intent.putExtra(Intent.EXTRA_TEXT, "Check this out! I got a score of $score in the $quiz quiz!")
+        }
+
         if (score != -1) {
             var newName = ""
             Log.i("here", "score not -1")
@@ -46,6 +54,8 @@ class HighScoreActivity : AppCompatActivity() {
                 "Cancel"
             ) { dialog, _ -> dialog.cancel() }
             builder.show()
+        } else {
+            binding.share.hide()
         }
     }
 }

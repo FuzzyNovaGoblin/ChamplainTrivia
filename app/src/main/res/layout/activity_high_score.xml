@@ -6,9 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".HighScoreActivity">
 
-    <TextView
-        android:id="@+id/highscores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="?attr/actionModeShareDrawable" />
+
+        <TextView
+            android:id="@+id/highscores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
