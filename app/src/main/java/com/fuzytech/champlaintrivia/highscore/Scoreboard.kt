@@ -16,10 +16,10 @@ object Scoreboard {
 
     fun scores(quiz: String): MutableMap<String, Int> {
         val map = HashMap<String, Int>()
-        if(!file(quiz).exists()){
+        if (!file(quiz).exists()) {
             file(quiz).createNewFile()
         }
-        file(quiz).readLines().forEach {it.split(" ").also {map[it[0]] = it[1].toInt()}}
+        file(quiz).readLines().forEach {it.split(" ".toRegex(), 2).also {map[it[1]] = it[0].toInt()}}
         Log.i("check_data", map.entries.toString())
         return map
     }
@@ -35,7 +35,7 @@ object Scoreboard {
     fun addScore(quiz: String, player: String, score: Int) {
         val scores = scores(quiz)
         scores[player] = score
-        val contents = scores.entries.map {(player, score) -> "$player $score"}.joinToString("\n")
+        val contents = scores.entries.map {(player, score) -> "$score $player"}.joinToString("\n")
         file(quiz).writeText(contents)
     }
 

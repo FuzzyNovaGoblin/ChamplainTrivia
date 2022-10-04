@@ -83,6 +83,7 @@
   {
     "type": "string",
     "question": "Who is the current mayor of Burlington?",
-    "answers": ["Mr. Clean", "Phil Scott", "Ericka Redic", "Miro Weinberger"]
+    "answers": ["Mr. Clean", "Phil Scott", "Ericka Redic", "Miro Weinberger"],
+    "answer": 3
   }
 ]

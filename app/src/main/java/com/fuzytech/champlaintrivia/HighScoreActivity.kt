@@ -32,6 +32,7 @@ class HighScoreActivity : AppCompatActivity() {
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_SUBJECT, "Quiz score")
             intent.putExtra(Intent.EXTRA_TEXT, "Check this out! I got a score of $score in the $quiz quiz!")
+            startActivity(Intent.createChooser(intent, "Share via"))
         }
 
         if (score != -1) {

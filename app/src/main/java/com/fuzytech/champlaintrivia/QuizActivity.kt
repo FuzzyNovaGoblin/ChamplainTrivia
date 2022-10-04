@@ -17,6 +17,7 @@ import com.fuzytech.champlaintrivia.question.QuestionParser
 class QuizActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var quizName: String
     private lateinit var questions: List<Question<*>>
     private var fileId: Int = 0
     private var questionIndex: Int = 0
@@ -28,6 +29,7 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         fileId = intent.extras!!.getInt("file_id");
+        quizName = intent.extras?.getString("quiz")!!
 
         val inerthing = resources.openRawResource(fileId)
         questions = QuestionParser.parse(inerthing.bufferedReader().use { it.readText() })
@@ -53,7 +55,7 @@ class QuizActivity : AppCompatActivity() {
                 this,
                 HighScoreActivity::class.java
             );
-            intent.putExtra("quiz", fileId.toString())
+            intent.putExtra("quiz", quizName)
             intent.putExtra("score", score)
 
             startActivity(intent)
