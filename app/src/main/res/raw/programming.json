@@ -43,5 +43,17 @@
     "question": "What is the optimal runtime complexity of most sorting algorithms?",
     "answers": ["O(logn)", "O(n)", "O(nlogn)", "O(n^2)"],
     "answer": 2
+  },
+  {
+    "type": "string",
+    "question": "What is the most common format used for raw data exchange over the internet?",
+    "answers": ["JSON", "HTML", "XML", "JavaScript"],
+    "answer": 0
+  },
+  {
+    "type": "string",
+    "question": "Who was the inventor of the modern computer?",
+    "answers": ["Ada Lovelace", "Alan Turing", "Winston Churchill", "John Conway"],
+    "answer": 0
   }
 ]
