@@ -10,12 +10,10 @@
     app:flow_horizontalAlign="center"
     tools:context=".MainActivity">
 
-
-
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight="1"></Space>
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/burlington_button"
@@ -28,7 +26,7 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight="1"></Space>
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/champlain_button"
@@ -41,7 +39,7 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight="1"></Space>
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/programming_button"
@@ -54,6 +52,6 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight="1"></Space>
+        android:layout_weight="1"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
