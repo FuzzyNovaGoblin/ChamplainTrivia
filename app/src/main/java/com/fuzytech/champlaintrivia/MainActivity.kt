@@ -25,18 +25,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         binding.champlainButton.setOnClickListener {
-            Log.i("here", "in champlainButton click")
             startQuiz(R.raw.questions)
+        }
+        binding.champlainButton.setOnLongClickListener {
+            showScore(R.raw.questions)
         }
 
         binding.burlingtonButton.setOnClickListener {
-            Log.i("here", "in burlingtonButton click")
             startQuiz(R.raw.burlington)
+        }
+        binding.burlingtonButton.setOnLongClickListener {
+            showScore(R.raw.burlington)
         }
 
         binding.programmingButton.setOnClickListener {
-            Log.i("here", "in programmingButton click")
             startQuiz(R.raw.programming)
+        }
+        binding.programmingButton.setOnLongClickListener {
+            showScore(R.raw.programming)
         }
 //        val inerthing = resources.openRawResource(R.raw.questions)
 //        questions = QuestionParser.parse(inerthing.bufferedReader().use { it.readText() })
@@ -59,13 +65,24 @@ class MainActivity : AppCompatActivity() {
         Scoreboard.init(dataDir)
     }
 
-    fun startQuiz(file_id: Int) {
+    private fun startQuiz(file_id: Int) {
         val intent = Intent(
-            this@MainActivity,
+            this,
             QuizActivity::class.java
         )
         intent.putExtra("file_id", file_id)
         startActivity(intent)
+    }
+
+    private fun showScore(file_id: Int): Boolean {
+        val intent = Intent(
+            this,
+            HighScoreActivity::class.java
+        )
+        intent.putExtra("quiz", file_id.toString())
+        intent.putExtra("score", -1)
+        startActivity(intent)
+        return true
     }
 
 }
