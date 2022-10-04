@@ -1,6 +1,8 @@
 package com.fuzytech.champlaintrivia.highscore
 
+import android.util.Log
 import java.io.File
+import kotlin.math.log
 
 object Scoreboard {
 
@@ -18,6 +20,7 @@ object Scoreboard {
             file(quiz).createNewFile()
         }
         file(quiz).readLines().forEach {it.split(" ").also {map[it[0]] = it[1].toInt()}}
+        Log.i("check_data", map.entries.toString())
         return map
     }
 

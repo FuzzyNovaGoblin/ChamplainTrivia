@@ -58,6 +58,7 @@ class QuizActivity : AppCompatActivity() {
                 HighScoreActivity::class.java
             );
             intent.putExtra("quiz", fileId.toString())
+            intent.putExtra("score", score)
 
             startActivity(intent)
             this.finish()
